@@ -40,7 +40,6 @@ async function authFormHandler(e) {
   arrLoginReceived = arrReceived.map((item) => item.login);
   arrPasswordReceived = arrReceived.map((item) => item.pass);
   arrStatusReceived = arrReceived.map((item) => item.status);
-  console.log(arrStatusReceived);
 
   let work = false;
   let flagSameLogin = false;
@@ -149,7 +148,6 @@ async function authFormHandler(e) {
 
     async function lockUserHandler(str) {
       let copyUserListForLock = { ...copyResponseObjFromFieldLast };
-      console.log(str, allCheck);
       if (allCheck) {
         for (let key in copyUserListForLock) {
           copyUserListForLock[key].status = str;
