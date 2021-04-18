@@ -1,96 +1,111 @@
 export class User {
-  // create - создание нового пользователя в базе
-  static create(user) { // ссылка с базы
-    return fetch('https://project-app-3a86b-default-rtdb.firebaseio.com/users.json', {
-      method: 'POST', // создание
-      body: JSON.stringify(user), // тело - наш объект
-      headers: {
-        'Content-Type': 'application/json'
+  static create(user) {
+    return fetch(
+      'https://project-app-3a86b-default-rtdb.firebaseio.com/users.json',
+      {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
-    })
-      .then(response => response.json())
-      .then(response => {
+    )
+      .then((response) => response.json())
+      .then((response) => {
         let arrGivenAway = [];
-        for(let key in response) {
-          arrGivenAway.push(response[key])
+        for (let key in response) {
+          arrGivenAway.push(response[key]);
         }
-        // console.log(response) // приходящий с базы объект name
-        // user.id = response.name // запись поля name в наш объект под id 
         return arrGivenAway;
-      })
+      });
   }
 
-  static getting() { // ссылка с базы
-    return fetch('https://project-app-3a86b-default-rtdb.firebaseio.com/users.json', {
-      method: 'GET', // получение
-      body: JSON.stringify(), // тело - наш объект
-      headers: {
-        'Content-Type': 'application/json'
+  static getting() {
+    return fetch(
+      'https://project-app-3a86b-default-rtdb.firebaseio.com/users.json',
+      {
+        method: 'GET',
+        body: JSON.stringify(),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
-    })
-      .then(response => response.json())
-      .then(response => {
+    )
+      .then((response) => response.json())
+      .then((response) => {
         let arrReceived = [];
-        for(let key in response) {
-          arrReceived.push(response[key])
+        for (let key in response) {
+          arrReceived.push(response[key]);
         }
         return arrReceived;
-      })
+      });
   }
 
-  static getIdUserAndRestInfo() { // ссылка с базы
-    return fetch('https://project-app-3a86b-default-rtdb.firebaseio.com/users.json', {
-      method: 'GET', // получение
-      body: JSON.stringify(), // тело - наш объект
-      headers: {
-        'Content-Type': 'application/json'
+  static getIdUserAndRestInfo() {
+    return fetch(
+      'https://project-app-3a86b-default-rtdb.firebaseio.com/users.json',
+      {
+        method: 'GET',
+        body: JSON.stringify(),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
-    })
-      .then(response => response.json())
-      .then(response => {
+    )
+      .then((response) => response.json())
+      .then((response) => {
         return response;
-      })
+      });
   }
 
-  static changesСompletely(copyResponseObj) { // ссылка с базы
-    return fetch('https://project-app-3a86b-default-rtdb.firebaseio.com/users.json', {
-      method: 'PUT', // изменения полностью
-      body: JSON.stringify(copyResponseObj), // тело - наш объект
-      headers: {
-        'Content-Type': 'application/json'
+  static changesСompletely(copyResponseObj) {
+    return fetch(
+      'https://project-app-3a86b-default-rtdb.firebaseio.com/users.json',
+      {
+        method: 'PUT',
+        body: JSON.stringify(copyResponseObj),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
-    })
-      .then(response => response.json())
-      .then(response => {
+    )
+      .then((response) => response.json())
+      .then((response) => {
         return response;
-      })
+      });
   }
 
-  static deleteUser(user) { // ссылка с базы
-    return fetch('https://project-app-3a86b-default-rtdb.firebaseio.com/users.json', {
-      method: 'PUT', // изменения полностью
-      body: JSON.stringify(user), // тело - наш объект
-      headers: {
-        'Content-Type': 'application/json'
+  static deleteUser(user) {
+    return fetch(
+      'https://project-app-3a86b-default-rtdb.firebaseio.com/users.json',
+      {
+        method: 'PUT',
+        body: JSON.stringify(user),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
-    })
-      .then(response => response.json())
-      .then(response => {
+    )
+      .then((response) => response.json())
+      .then((response) => {
         return response;
-      })
+      });
   }
 
-  static lockUser(user) { // ссылка с базы
-    return fetch('https://project-app-3a86b-default-rtdb.firebaseio.com/users.json', {
-      method: 'PUT', // изменения полностью
-      body: JSON.stringify(user), // тело - наш объект
-      headers: {
-        'Content-Type': 'application/json'
+  static lockUser(user) {
+    return fetch(
+      'https://project-app-3a86b-default-rtdb.firebaseio.com/users.json',
+      {
+        method: 'PUT',
+        body: JSON.stringify(user),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
-    })
-      .then(response => response.json())
-      .then(response => {
+    )
+      .then((response) => response.json())
+      .then((response) => {
         return response;
-      })
+      });
   }
 }

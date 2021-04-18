@@ -4,9 +4,9 @@ export function activateModalLogin() {
   modalEl.style.height = '300px';
   modalEl.style.margin = '100px auto';
   modalEl.style.backgroundColor = '#fff';
-  modalEl.style.display = 'flex'
-  modalEl.style.justifyContent = 'center'
-  modalEl.style.alignItems = 'center'
+  modalEl.style.display = 'flex';
+  modalEl.style.justifyContent = 'center';
+  modalEl.style.alignItems = 'center';
   modalEl.insertAdjacentHTML(
     'afterbegin',
     `<form class="mui-form" id="form-auth">
@@ -32,9 +32,9 @@ export function activateModalSign() {
   modalEl.style.height = '300px';
   modalEl.style.margin = '100px auto';
   modalEl.style.backgroundColor = '#fff';
-  modalEl.style.display = 'flex'
-  modalEl.style.justifyContent = 'center'
-  modalEl.style.alignItems = 'center'
+  modalEl.style.display = 'flex';
+  modalEl.style.justifyContent = 'center';
+  modalEl.style.alignItems = 'center';
   modalEl.insertAdjacentHTML(
     'afterbegin',
     `<form class="mui-form" id="form-reg">
@@ -60,7 +60,11 @@ export function activateModalSign() {
 
 export let allCheck = false;
 
-export function renderList(copyResponseObjFromFieldLast, checkboxActiveHandler, checkboxAllActiveHandler) {
+export function renderList(
+  copyResponseObjFromFieldLast,
+  checkboxActiveHandler,
+  checkboxAllActiveHandler
+) {
   let html = '';
   let htmlTHead = `
   <table class="mui-table mui-table--bordered">
@@ -81,14 +85,18 @@ export function renderList(copyResponseObjFromFieldLast, checkboxActiveHandler, 
     <tbody>
   `;
   for (let key in copyResponseObjFromFieldLast) {
-    let lastIn = `${new Date(copyResponseObjFromFieldLast[key].last).toLocaleDateString()}
-    ${new Date(copyResponseObjFromFieldLast[key].last).toLocaleTimeString()}`
+    let lastIn = `${new Date(
+      copyResponseObjFromFieldLast[key].last
+    ).toLocaleDateString()}
+    ${new Date(copyResponseObjFromFieldLast[key].last).toLocaleTimeString()}`;
     let lastInDisplay = ``;
-    if (`${lastIn}`.substring(0,7) === 'Invalid') {
+    if (`${lastIn}`.substring(0, 7) === 'Invalid') {
       lastInDisplay = 'did not enter';
     } else {
-      lastInDisplay = `${new Date(copyResponseObjFromFieldLast[key].last).toLocaleDateString()}
-      ${new Date(copyResponseObjFromFieldLast[key].last).toLocaleTimeString()}`
+      lastInDisplay = `${new Date(
+        copyResponseObjFromFieldLast[key].last
+      ).toLocaleDateString()}
+      ${new Date(copyResponseObjFromFieldLast[key].last).toLocaleTimeString()}`;
     }
     html += `
     <tr>
@@ -105,8 +113,12 @@ export function renderList(copyResponseObjFromFieldLast, checkboxActiveHandler, 
           ${copyResponseObjFromFieldLast[key].login}
         </td>
         <td>
-          ${new Date(copyResponseObjFromFieldLast[key].date).toLocaleDateString()}
-          ${new Date(copyResponseObjFromFieldLast[key].date).toLocaleTimeString()}
+          ${new Date(
+            copyResponseObjFromFieldLast[key].date
+          ).toLocaleDateString()}
+          ${new Date(
+            copyResponseObjFromFieldLast[key].date
+          ).toLocaleTimeString()}
         </td>
         <td>
           ${lastInDisplay}
@@ -115,26 +127,26 @@ export function renderList(copyResponseObjFromFieldLast, checkboxActiveHandler, 
           ${copyResponseObjFromFieldLast[key].status}
         </td>
       </tr>
-    `
+    `;
   }
   let htmlTFooter = `
     </tbody>
   </table>
-  `
-  const toolbar = document.getElementById('toolbar')
+  `;
+  const toolbar = document.getElementById('toolbar');
   toolbar.style.display = 'flex';
 
-  const list = document.getElementById('list')
+  const list = document.getElementById('list');
   list.innerHTML = htmlTHead + html + htmlTFooter;
 
-  const generalCheckbox = document.getElementById('general-checkbox')
+  const generalCheckbox = document.getElementById('general-checkbox');
   let checkboxAll = list.querySelectorAll('.checkbox');
-  checkboxAll.forEach(checkbox => {
-    checkbox.addEventListener('change', checkboxActiveHandler)
-  })
+  checkboxAll.forEach((checkbox) => {
+    checkbox.addEventListener('change', checkboxActiveHandler);
+  });
 
   function checkboxAllActiveHandler() {
-    checkboxAll.forEach(checkbox => {
+    checkboxAll.forEach((checkbox) => {
       if (generalCheckbox.checked) {
         checkbox.checked = true;
         allCheck = true;
@@ -142,8 +154,8 @@ export function renderList(copyResponseObjFromFieldLast, checkboxActiveHandler, 
         checkbox.checked = false;
         allCheck = false;
       }
-    })
+    });
   }
 
-  generalCheckbox.addEventListener('change', checkboxAllActiveHandler)
+  generalCheckbox.addEventListener('change', checkboxAllActiveHandler);
 }
